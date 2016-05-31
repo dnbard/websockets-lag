@@ -44,11 +44,18 @@ wss.on('connection', (ws) => {
     });
 
     var token = setInterval(() => {
-        sendFirstMessage(ws);
+        try{
+            sendFirstMessage(ws);
+        } catch(e){
+            clearInterval(token);
+            token = null;
+        }
     }, 100);
 
     ws.on('close', () => {
-        clearInterval(token);
+        if (token){
+            clearInterval(token);
+        }
     });
 });
 
