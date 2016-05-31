@@ -6,6 +6,11 @@ const ws = new WebSocket(`${protocol}://${location.host}`);
 const counterElement = document.querySelector('#counter');
 
 ws.onmessage = message => {
-    let date = new Date(JSON.parse(message.data));
-    counterElement.textContent = `${new Date() - date}ms`;
+    var data = JSON.parse(message.data);
+
+    if (data.type === 'first'){
+        ws.send(data.id);
+    } else {
+        counterElement.textContent = `${data.latency}ms`;
+    }
 }

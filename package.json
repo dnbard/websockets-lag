@@ -12,5 +12,8 @@
     "express": "^4.13.4",
     "url": "^0.11.0",
     "ws": "^1.1.0"
+  },
+  "devDependencies": {
+    "node-uuid": "^1.4.7"
   }
 }
