@@ -13,7 +13,7 @@
     "url": "^0.11.0",
     "ws": "^1.1.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "node-uuid": "^1.4.7"
   }
 }
