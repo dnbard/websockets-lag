@@ -28,6 +28,10 @@ ws.onmessage = message => {
     } else {
         latencyData.push(data.latency);
 
+        if (latencyData.length > 2000) {
+            latencyData.shift();
+        }
+
         average = (latencyData.reduce((a, b) => { return a + b; }) / latencyData.length);
 
         counterElement.textContent = `${data.latency}ms`;
